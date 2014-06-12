@@ -13,14 +13,3 @@ puts "tom's last name is #{tom.last_name}"
 puts "tom's full name is #{tom.full_name}"
 
 puts "tom is #{tom.age} years old."
-
-puts "tom will die in the year #{tom.expected_death_year}"
-
-tom.current_smoker = true
-tom.married = true
-
-msg = tom.give_insurance? ? "should" : "should not"
-puts "Tom #{msg} get insured."
-
-
-

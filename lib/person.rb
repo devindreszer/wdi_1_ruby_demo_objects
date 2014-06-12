@@ -5,7 +5,7 @@ class Person
   attr_reader :first_name, :dob
 
   # generates a getter and setter
-  attr_accessor :last_name, :current_smoker, :married
+  attr_accessor :last_name, :married
 
   # dob_str must be in thisform 'm-d-Y'
   # initalize method
@@ -13,9 +13,7 @@ class Person
     @first_name = first
     @last_name = last
     @dob = Date.strptime(dob_str, '%m-%d-%Y')
-    @current_smoker = false
     @married = false
-    @years_to_live = (79 - age) - (current_smoker? ? -7 : 0)  + (married? ? 5 : 0)
   end
 
   def age
@@ -23,24 +21,12 @@ class Person
     now.year - @dob.year
   end
 
-  def expected_death_year
-    Date.today.year + @years_to_live
-  end
-
-  def current_smoker?
-    @current_smoker
+  def full_name
+    @first_name + " " + @last_name
   end
 
   def married?
     @married
-  end
-
-  def give_insurance?
-    @years_to_live > 20
-  end
-
-  def full_name
-    @first_name + " " + @last_name
   end
 
 end

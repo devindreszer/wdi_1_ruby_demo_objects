@@ -10,11 +10,14 @@ class Song
     @duration = duration
     @price = price
     @release_date = Date.strptime(release_str, '%m-%d-%Y')
-    @artist_percentage = [0.20 - 0.05 * (years_since_release / 5).floor, 0].max
   end
 
   def years_since_release
     Date.today.year - @release_date.year
+  end
+
+  def artist_percentage
+    [0.20 - 0.05 * (years_since_release / 5).floor, 0].max
   end
 
   def show
